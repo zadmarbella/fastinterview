@@ -1,15 +1,16 @@
 var app = angular.module("app", [])
 
-app.config( function ($routeProvider)
+
+function FastInterviewCtrl($scope, $timeout)
 {
-	$routeProvider
-		.when( '/'
-			 , 	{
-					templateUrl: "main.html"
-				,	controller: "AppCtrl"
-				})
-		.otherwise({ redirectTo: "/" })
-});
+	$scope.question = "test question?";
+	$scope.counter = 15 + "s";
+}
 
 
-
+function KeyboardCtrl($scope)
+{
+	$scope.keyup = function(keyEvent) {
+		console.log( 'keyup', keyEvent );
+	};
+}
