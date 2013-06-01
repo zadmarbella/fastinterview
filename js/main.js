@@ -3,12 +3,21 @@ var ques = '["Tell me about yourself. ","What are your strengths?","What are you
 
 function FastInterviewCtrl($scope, $timeout)
 {
+
+    /*
+     * Use this code, when your app works on a server
+    $http.get('questions.json').success(function(data) {
+        console.info(data);
+        // random between 1 and n
+        $scope.question = data[1];
+    });
+    */
+
 	var questions = JSON.parse( ques );
     var randomnumber = Math.floor( Math.random() * 100 );
     $scope.question = questions[ randomnumber ];
 	$scope.counter = 15 + "s";
 }
-
 
 function KeyboardCtrl($scope)
 {
