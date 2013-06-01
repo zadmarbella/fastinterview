@@ -13,6 +13,26 @@ function FastInterviewCtrl( $scope, $http )
 	$scope.counter = 15 + "s";
 }
 
+function CounterCtrl( $scope, $timeout )
+{
+	$scope.counter = 15;
+	$scope.error = "alert-info";
+	$scope.onTimeout = function(){
+		$scope.counter--;
+		if ($scope.counter == 0 )
+		{
+			$timeout.cancel(mytimeout);
+			$scope.error = "alert-error"
+			// load error page
+		}
+		else
+		{
+			mytimeout = $timeout($scope.onTimeout,1000);
+		}
+    }
+	var mytimeout = $timeout($scope.onTimeout,1000);
+}
+
 function KeyboardCtrl($scope)
 {
 	$scope.keyup = function(keyEvent) {
