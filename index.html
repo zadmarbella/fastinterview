@@ -23,24 +23,25 @@
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
-    <body>
+    <body  ng-app="app" ng-controller="MainCtrl" ui-keypress="{ 32: 'emit($event)', 13: 'emit($event)' }">
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-
-        <div class="container" ng-app="app">
+		
+        <div class="container" >
 
             <div class="hero-unit" ng-controller="FastInterviewCtrl">
 				<div class="fast-question">
-                    <h1>{{question}}</h1>
+                    <h1 class="ng-cloak">{{question}}</h1>
                 </div>
-				<div class="counter alert {{error}}" ng-controller="CounterCtrl">{{counter}}s</div>
-            </div><!-- hero-unit -->
-			<div class="keyboard-controls" ng-controller="KeyboardCtrl" ng-keyup="keyup($event)">
 
-			</div>
+				<div class="{{error}}" ng-controller="CounterCtrl" ><strong class="ng-cloak" >{{counter}}s</strong></div>
+				
+            </div><!-- hero-unit -->
             <hr>
+			
+			<div ng-controller="KeyboardCtrl"></div>
 
 			<footer>
 				<p>FastInterview</p>
@@ -53,6 +54,8 @@
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
     <script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/vendor/angular.js"></script>
+	<script src="js/vendor/utils.js"></script> 
+	<script src="js/vendor/keypress/keypress.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 
